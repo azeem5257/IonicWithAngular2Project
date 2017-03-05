@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Create New Organization
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form [formGroup]="newOrganizationForm" (submit)="insertOrganization()">
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>Organization Name</ion-label>
+        <ion-input type="text" formControlName ="orgName" id="orgName"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Email Id</ion-label>
+        <ion-input type="text" formControlName ="email" id="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Password</ion-label>
+        <ion-input type="password" formControlName ="password" id="password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Organization Description</ion-label>
+        <ion-textarea type="text" formControlName ="description" id="description"></ion-textarea>
+      </ion-item>
+     
+      <ion-item>
+        <ion-label stacked>Organization Location</ion-label>
+        <ion-input type="text" formControlName ="location" [(ngModel)]="locationValue" id="location"></ion-input>
+        <button id="uploadBtn" (click)="openMapView()" item-right ion-button icon-right>
+          Locate on Map
+          <ion-icon ios="ios-locate" md="md-locate"></ion-icon>
+        </button>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Organization Logo</ion-label>
+        <ion-input type="text" formControlName ="thumbnail" [(ngModel)]="thumbnailName" id="thumbnail"></ion-input>
+        <button id="uploadBtn" [hidden]="!isBrowser" (click)="thumbnailInput.click()" item-right ion-button icon-right>
+          Upload Organization Icon
+          <ion-icon  ios="ios-image" md="md-image"></ion-icon>
+        </button>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Images</ion-label>
+        <ion-input type="text" formControlName ="images" id="images"></ion-input>
+      </ion-item>
+
+      <button ion-button block type="submit" [disabled]="!newOrganizationForm.valid">Submit</button>
+  </ion-list>
+  </form>
+
+  <input #thumbnailInput accept="image/*" [hidden]="true" name="file" type="file" (change)="selectedThumbnail($event)" />
+</ion-content>

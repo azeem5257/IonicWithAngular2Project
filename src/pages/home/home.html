@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="filterOptionPopOver($event)" >
+        <ion-icon name="filter" ios="ios-funnel" md="md-funnel"></ion-icon>
+      </button>
+    </ion-buttons>    
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div [hidden]="isBrowser">
+    <ion-list>
+      <ion-item *ngFor="let organization of organizations | organizationfilter:'{sortOption}'" text-wrap>
+        <ion-card>
+          <ion-item>            
+            <h2>{{organization.orgName}}</h2>
+            <p>November 5, 1955</p>
+          </ion-item>
+          <img src={{organization.thumbnail}}/>
+          <ion-fab right top>
+            <button ion-fab>
+              <ion-icon name="pin"></ion-icon>
+            </button>
+          </ion-fab>
+          <ion-card-content text-wrap>            
+            <p>{{organization.description}}</p>
+          </ion-card-content>
+          <ion-row>
+            <ion-col>
+              <button (click)="likeBtnClickHandler(organization)" ion-button icon-left clear small>
+                <ion-icon name="thumbs-up"></ion-icon>
+                <div>{{organization.numOfLikes}} Likes</div>
+              </button>
+            </ion-col>
+            <ion-col>
+              <button ion-button icon-left clear small>
+                <ion-icon name="navigate"></ion-icon>
+                <div>Start</div>
+              </button>
+            </ion-col>
+            <ion-col center text-center>
+              <ion-note>
+                <span>{{organization.distanceFromCurrentLoc}}</span>
+              </ion-note>
+            </ion-col>
+          </ion-row>
+        </ion-card>      
+      </ion-item>      
+    </ion-list>
+  </div>
+
+  <div [hidden]="!isBrowser">
+      <ion-row wrap>
+          <ion-col *ngFor="let organization of organizations | organizationfilter:sortOption" width-32>
+            <ion-card>
+              <ion-item>
+                <ion-avatar item-left>
+                  <button ion-fab>
+                    <ion-icon name="pin"></ion-icon>
+                  </button>
+                </ion-avatar>                
+                <h2>{{organization.orgName}}</h2>
+                <p>November 5, 1955</p>
+              </ion-item>              
+              <img src={{organization.thumbnail}}/>                
+              <ion-card-content>            
+                <p>
+                  {{organization.description}}
+                </p>
+              </ion-card-content>
+              <ion-row>
+                <ion-col>
+                  <button (click)="likeBtnClickHandler(organization, $event)" ion-button icon-left clear small>
+                    <ion-icon name="thumbs-up"></ion-icon>
+                    <div>{{organization.numOfLikes}} Likes</div>
+                  </button>
+                </ion-col>
+                <ion-col>
+                  <button ion-button icon-left clear small>
+                    <ion-icon name="navigate"></ion-icon>
+                    <div>Start</div>
+                  </button>
+                </ion-col>
+                <ion-col center text-center>
+                  <ion-note>
+                    <span>{{organization.distanceFromCurrentLoc}}</span>
+                  </ion-note>
+                </ion-col>
+              </ion-row>
+            </ion-card>    
+          </ion-col>        
+      </ion-row>
+  </div>
+
+</ion-content>
