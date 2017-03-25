@@ -9,6 +9,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { MapPage } from '../pages/map/map';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OrganizationFilterPipe } from '../pipes/organization-filter.pipe';
+import { OrganizationOwnerHomePage } from '../pages/organizationOwnerHome/organizationOwnerHome';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { OrganizationFilterPipe } from '../pipes/organization-filter.pipe';
     TabsPage,
     MapPage,
     PopoverPage,
-    OrganizationFilterPipe
+    OrganizationFilterPipe,
+    OrganizationOwnerHomePage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -33,7 +35,8 @@ import { OrganizationFilterPipe } from '../pipes/organization-filter.pipe';
     HomePage,
     TabsPage,
     MapPage,
-    PopoverPage
+    PopoverPage,
+    OrganizationOwnerHomePage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

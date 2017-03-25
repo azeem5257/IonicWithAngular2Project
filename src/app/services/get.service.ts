@@ -31,6 +31,16 @@ export class GETServices{
         let response = this.getRequest(category, options, parameters);
         return response;
     }
+    
+    getOrganizationInfo(organizationId){
+    	let headers  = new Headers({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
+        let options  = new RequestOptions({ headers: headers });
+        let category = '/getAllOrganizations';
+        //let parameters = 'organizationId='+organizationId;
+
+        let response = this.getRequest(category, options, null);
+        return response;
+    }
 
     getRequest(category, options, parameters){
         console.log('GETServices...');
