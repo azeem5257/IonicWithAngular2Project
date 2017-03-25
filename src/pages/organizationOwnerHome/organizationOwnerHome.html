@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Home Page
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding *ngIf="isDataAvailable">
+	<ion-card>
+	  <img src={{organization.thumbnail}}/>
+	  <ion-card-content>
+	    <ion-card-title>
+	      {{organization.orgName}}
+	     </ion-card-title>
+	    <p>{{organization.description}}</p>
+	  </ion-card-content>
+	  <ion-row>
+         <ion-col>
+           <button ion-button icon-left clear small>
+             <ion-icon name="thumbs-up"></ion-icon>
+             <ion-note>
+	         	<div>{{organization.numOfLikes}} Likes</div>
+	       	 </ion-note>
+           </button>
+         </ion-col>
+         <ion-col>
+           <button ion-button icon-left clear small>
+             <ion-icon name="text"></ion-icon>
+        	 <div>4 Comments</div>
+           </button>
+         </ion-col>
+         <ion-col center text-center>
+           <ion-note>
+	         11h ago
+	       </ion-note>
+         </ion-col>
+      </ion-row>
+	</ion-card>
+	
+	<ion-content class="card-background-page">
+	
+		<ion-card>
+		    <img src="{{organization.thumbnail}}"/>
+		    <div class="card-title">São Paulo</div>
+		    <div class="card-subtitle">41 Listings</div>
+	  	</ion-card>
+	  	
+	  	<ion-card>
+		    <img src="{{organization.thumbnail}}"/>
+		    <div class="card-title">São Paulo</div>
+		    <div class="card-subtitle">41 Listings</div>
+	  	</ion-card>
+	  	
+	  	<ion-card>
+		    <img src="{{organization.thumbnail}}"/>
+		    <div class="card-title">São Paulo</div>
+		    <div class="card-subtitle">41 Listings</div>
+	  	</ion-card>
+	  	<ion-card>
+		    <img src="{{organization.thumbnail}}"/>
+		    <div class="card-title">São Paulo</div>
+		    <div class="card-subtitle">41 Listings</div>
+	  	</ion-card>
+	  	<ion-card>
+		    <img src="{{organization.thumbnail}}"/>
+		    <div class="card-title">São Paulo</div>
+		    <div class="card-subtitle">41 Listings</div>
+	  	</ion-card>
+	  	<ion-card>
+		    <img src="{{organization.thumbnail}}"/>
+		    <div class="card-title">São Paulo</div>
+		    <div class="card-subtitle">41 Listings</div>
+	  	</ion-card>
+	  	<ion-card>
+		    <img src="{{organization.thumbnail}}"/>
+		    <div class="card-title">São Paulo</div>
+		    <div class="card-subtitle">41 Listings</div>
+	  	</ion-card>
+	  	
+	  	<ion-fab top right edge>
+    <button ion-fab color="vibrant" mini><ion-icon ios="ios-arrow-down" md="md-arrow-down"></ion-icon></button>
+    <ion-fab-list>
+      <button ion-fab><ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon></button>
+      <button ion-fab><ion-icon ios="ios-hammer" md="md-hammer"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+	  	
+	</ion-content>
+	
+	
+	
+</ion-content>
+
